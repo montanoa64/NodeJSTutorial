@@ -1,0 +1,108 @@
+1)npm init 
+answer question
+
+2) npm install --save express
+to install expressJS
+
+3)npm i -S mongodb
+to set up mongdb
+
+4)npm i -S react react-dom
+for front ent
+
+5)npm install --save-dev webpack
+dev dependencies
+
+6)npm i -D babel-cli babel-loader babel-preset-es2015 babel-preset-stage-2 babel-preset-react
+transform to react
+
+7)npm i -D nodemon
+to autorestart
+
+8)npm i -D eslint eslint-plugin-react babel-eslint
+idk
+
+9)mkdir src
+make a folder
+
+10)mkdir public
+
+11)mkdir api
+
+Windows
+12)dir> api/index.js 
+   dir> public/index.html
+   dir> src/index.js
+
+Mac
+12)touch api/index.js
+   touch public/index.html
+   touch src/index.js
+
+13) go to package.json file and under script type:
+"start": "node server.js",
+
+14)
+Windows
+dir> server.js
+
+Mac
+touch server.js
+
+15) go to package.json file and under script type change:
+"start": "nodemon --exec babel-node node server.js --ignore public/",
+
+and add:
+"dev": "webpack -wd",
+
+16) create a new file called webpack.config.js and put this in it:
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        path: __dirname + '/public',
+        filename: 'bundle.js'
+    },
+    module:{
+        loaders:[
+            {
+                test: /\.js$/,
+                loader: 'babel-loader'
+            }
+        ]
+    }
+};
+
+17)create a new file called .barbelrc and put this in it:
+{
+    "presets": ["react","es2015","stage-2"]
+}
+
+18)create a new file called .eslintrc and put this in it:
+module.exports = {
+  "parser": 'babel-eslint',
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": [ "react" ],
+  "rules": {
+    "indent": ["error", 2],
+    "linebreak-style": ["error","unix"],
+    "quotes": ["error","single"],
+    "semi": ["error","always"],
+    "no-console": ["warn", { "allow": ["info", "error"] }]
+  }
+};
+
+
+19)change 
